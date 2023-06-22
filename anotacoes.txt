@@ -1,8 +1,0 @@
-docker run --help -> lista os comandos
-
-docker ps/ docker container ls -> serve para listar os containers em execucao
-docker ps -a/ docker container ls -a  -> mostra todos os container, mesmo os fora de execucao
-
-
-
-docker run ubuntu sleep 1d -> roda o containar e executa durante um dia
