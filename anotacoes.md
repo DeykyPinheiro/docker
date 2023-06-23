@@ -34,3 +34,18 @@ docker port <id container / nome>  -> mostra como ta o mapeamento das portas
 
 
 para acessar a porta tenho que expor
+
+==============================================
+o que sao imagens? -> 
+imagens são varios layers/ camadas
+imagens sao read only, nao conseguimos modificar depois de criada
+
+como imagens viram containers?
+containers sao imagens com uma camamda temporaria de read/write,
+eles sao processos dentro do nosso sistema, tal qual um pid
+
+como criamos nosssas imagens?
+
+docker images -> lista todas as imagens baixadas
+docker inspect <id / nome> -> descreve o container
+docker history <id / nome> -> mostra as camadas do container
