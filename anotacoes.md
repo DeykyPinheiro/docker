@@ -18,3 +18,19 @@ top dentro do container -> mostra a arvore de processos
 docker rm <id container / nome> - > excluir o container
 
 docker run -it ubuntu bash -> executa o ubuntu em modo iterativo, quando der exit o container morre, ja que nao ha processos sendo executados
+
+
+==============================================
+executando aplicacao pratica no docker
+
+docker run dockersamples/static-site -> executar um site statico pronto e deixa disponivel na porta 80 do container
+docker run -d dockersamples/static-site -> -d serve pra executar o container e nao travar o terminal
+docker rm <id container / nome>  --force -> parar e remover o containar de uma vez
+docker run -d -P dockersamples/static-site ->  expoe a porta do container em alguma porta
+docker run -d -p 8080:80 dockersamples/static-site -> 8080 da minha maquina, seja a 80 do container
+docker port <id container / nome>  -> mostra como ta o mapeamento das portas
+
+
+
+
+para acessar a porta tenho que expor
