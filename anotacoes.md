@@ -37,6 +37,7 @@ para acessar a porta tenho que expor
 
 ==============================================
 o que sao imagens? -> 
+sao receitas para gerar containeres, 
 imagens são varios layers/ camadas
 imagens sao read only, nao conseguimos modificar depois de criada
 
@@ -49,3 +50,20 @@ como criamos nosssas imagens?
 docker images -> lista todas as imagens baixadas
 docker inspect <id / nome> -> descreve o container
 docker history <id / nome> -> mostra as camadas do container
+
+==============================================
+criando nossas imagens
+
+docker build -t test/node:1.0 . -> builda a imagen e tickar ela como test/node, e coloco a versao 1.0 que vai ser executado no contexto do diretorio atual no caso "."
+
+isso explica tudo o que temos no dockerfile
+criamos um Dockerfile
+    criarmos a imagem a parti do node 14
+    definimos workdir como /app
+    copiamos todos os aquivos locais menos o Dockerfile para dentro de workdir
+    instalamos as dependencias
+    e depois definimos o ponto de entrada como npm start
+
+
+docker run -d -p 8080:3000 test/node:1.0 -> executa a aplicacao e ja deixa no entrypoint, ai basta acessa localhost:8080
+
