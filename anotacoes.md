@@ -79,3 +79,11 @@ docker push test/node:1.0 -> isso da errado mesmo com a imagem na maquina, pq eu
 docker tag <nome antigo:versao> <nome nome:versao> -> isso gera uma nova copia com tag escolinha na imagem
 
 POSSO EMPURRAR VARIAS VERSOES DO CONTAINER
+
+==============================================
+PERSISTIR DADOS
+docker rmi $(docker image ls -aq) --force -> exclui todas as imagens
+
+docker ps -s -> mostra o tamanho do container (imagem + camada read/write)
+
+volumes
