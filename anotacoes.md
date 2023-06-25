@@ -86,4 +86,22 @@ docker rmi $(docker image ls -aq) --force -> exclui todas as imagens
 
 docker ps -s -> mostra o tamanho do container (imagem + camada read/write)
 
-volumes
+
+    BIND MOUTHS
+    serve para eu persistir no localhost
+    persiste os dados mesmo que os containeres caiam
+    
+    docker run -it -v <pasta local>:<local da onde persistir>  ubuntu bash -> o -v significar que vai persistir o volume, 
+    docker run -it -v C:/Users/pinheiro/Downloads/download_testes:/app  ubuntu bash -> exemplo da aplicacao acima
+    docker run -–mount type=bind,source=C:/Users/pinheiro/Downloads/download_testes,target=/app bash -> exemplo mais atual
+
+    VOLUMES
+    o mais recomendado e é gerenciado pelo docker
+    docker volume ls -> lista volumes
+    docker volume create <nome do volume> -> cria uma volume
+    docker run -it -v <volume>:<pasta no container> <imagem> <comando>  -> executa em modo iterativo e usa o volume configurado
+    docker run -it -v meu-volume:/app ubuntu bash  -> exemplo de uso de volume,
+    docker run -–mount source=meu-volume,target=/app bash -> exemplo mais atual
+    docker volume -> lista de comandos
+    se o volume nao tiver criado o docker cria
+    volumes ficarm dentro de uma pasta local mas totalmente gerenciada pelo docker, depende do sistema, dai procura se quiser saber
