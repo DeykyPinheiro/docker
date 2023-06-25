@@ -67,3 +67,7 @@ criamos um Dockerfile
 
 docker run -d -p 8080:3000 test/node:1.0 -> executa a aplicacao e ja deixa no entrypoint, ai basta acessa localhost:8080
 
+==============================================
+
+docker stop -t=0 $(docker ps -q) -> para mais de um container de uma vez, com o -t=0 para instantaneo
+prestar atencao nas variaveis de ambiente, se salvar env e for usar ENV vai dar ruim
