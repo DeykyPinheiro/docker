@@ -71,3 +71,11 @@ docker run -d -p 8080:3000 test/node:1.0 -> executa a aplicacao e ja deixa no en
 
 docker stop -t=0 $(docker ps -q) -> para mais de um container de uma vez, com o -t=0 para instantaneo
 prestar atencao nas variaveis de ambiente, se salvar env e for usar ENV vai dar ruim
+
+==============================================
+como empurar a imagem
+docker login -u <nome do login> -> loga primeiro, o -u acho que é igual do github pra deixar como padrao
+docker push test/node:1.0 -> isso da errado mesmo com a imagem na maquina, pq eu tenho que por a tag com meu nome
+docker tag <nome antigo:versao> <nome nome:versao> -> isso gera uma nova copia com tag escolinha na imagem
+
+POSSO EMPURRAR VARIAS VERSOES DO CONTAINER
