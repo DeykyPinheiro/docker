@@ -132,3 +132,6 @@ docker run -it --name pong --network  minha-bridge ubuntu bash, da pra pingar pi
 CRIANDO PROPRIA REDE
 docker network create --driver <driver escolhido, geralmente o bridge> <nome da rede> 
 ->  exeplo "docker network create --driver bridge minha-bridge"
+
+docker run -it --network none ubuntu bash ->  quando utilizamos o drive none, é como se disessemos que o drive nao vai ter interface de rede vinculada com ele, ele fica isolado em nivel de rede
+docker run -it --network host ubuntu bash -> roda na rede que o usuario roda o docker, no caso eu, isso retira qualquer isolamento do container
