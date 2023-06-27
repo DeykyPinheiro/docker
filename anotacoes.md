@@ -121,3 +121,14 @@ COMO PINGAR OUTRO CONTAINER NA MESMA REDE:
 apt-get update -> atualiza o ubuntu
 apt-get install iputils-ping -y -> intalar o ping
 ping <ipaddress> - eu consido conexao com o outro container ("IPAddress": "172.17.0.2",)
+
+CONECTANDO CONTAINER USANDO OS NOMES, AO INVEZ DE IP
+docker run -it --name ubuntu1 ubuntu bash -> --name serve para da nome ao container, ao invez de ter um nome aleatorio
+docker run -it --name ubuntu1 --network <rede> ubuntu bash  -> exemplo: docker run -it --name ubuntu1 --network  minha-bridge ubuntu bash
+
+docker run -it --name pong --network  minha-bridge ubuntu bash, da pra pingar ping pong e ele retorna a conexao
+
+
+CRIANDO PROPRIA REDE
+docker network create --driver <driver escolhido, geralmente o bridge> <nome da rede> 
+->  exeplo "docker network create --driver bridge minha-bridge"
