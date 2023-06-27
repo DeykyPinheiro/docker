@@ -105,3 +105,6 @@ docker ps -s -> mostra o tamanho do container (imagem + camada read/write)
     docker volume -> lista de comandos
     se o volume nao tiver criado o docker cria
     volumes ficarm dentro de uma pasta local mas totalmente gerenciada pelo docker, depende do sistema, dai procura se quiser saber
+
+    TMPFS
+    só ta disponivel no linux, nao vou fazer
