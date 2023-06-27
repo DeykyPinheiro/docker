@@ -8,7 +8,7 @@ docker ps -a/ docker container ls -a  -> mostra todos os container, mesmo os for
 docker run ubuntu sleep 1d -> roda o container e executa durante um dia
 docker stop <id container / nome> - > para execucao do container, se adicionar  -t=0 a pausa fica instantanea, antes do nome do container
 docker start <id container / nome> - >  reiniciar o container com mesmo id ou nome
-docker exec -it  <id container / nome>  bash -> executa em modo interativo (mode exec) é execucao it é iterativo, o ultimo parametro é pra dizer que comando , i-> iterativo t -> terminal vai executar, isso acessa o terminal do container
+docker exec -it  <id container / nome>  bash -> executa em modo interativo (mode exec) é execucao it é iterativo, o ultimo parametro é pra dizer que comando , i-> iterativo t -> terminal vai executar, isso acessa o terminal do container, entra em um container ja em execucao
 exit -> sai do container
 
 docker pause  <id container / nome> - > pausa o container, nao reinicia os processos
@@ -108,3 +108,16 @@ docker ps -s -> mostra o tamanho do container (imagem + camada read/write)
 
     TMPFS
     só ta disponivel no linux, nao vou fazer
+
+==============================================
+    NETWORK
+docker inspect <id / nome> -> inpeciona detalhes do container em execucao
+o "NetworkID" mostra a rede, e como os container que subi (2), tem o mesmo NetworkID entao estão na mesma rede
+docker network ls -> mostra as redes que o docker tem 
+
+quando nao configurada uma rede, o container vai por padrao para a rede "bridge"
+
+COMO PINGAR OUTRO CONTAINER NA MESMA REDE: 
+apt-get update -> atualiza o ubuntu
+apt-get install iputils-ping -y -> intalar o ping
+ping <ipaddress> - eu consido conexao com o outro container ("IPAddress": "172.17.0.2",)
