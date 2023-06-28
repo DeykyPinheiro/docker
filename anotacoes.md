@@ -135,3 +135,21 @@ docker network create --driver <driver escolhido, geralmente o bridge> <nome da 
 
 docker run -it --network none ubuntu bash ->  quando utilizamos o drive none, é como se disessemos que o drive nao vai ter interface de rede vinculada com ele, ele fica isolado em nivel de rede
 docker run -it --network host ubuntu bash -> roda na rede que o usuario roda o docker, no caso eu, isso retira qualquer isolamento do container
+
+docker network prune -> remove rede nao usada por container, pode usar sem dó, só exclui redes de containeres
+
+==============================================
+COMUNICANDO APLICACAO E BANCO
+
+docker pull mongo:4.4.6
+docker pull aluradocker/alura-books:1.0
+
+docker run -d --name meu-mongo --network minha-rede mongo:4.4.6 -> executa o docker, como meu mongo e coloca ele na rede que eu criei
+docker run -d -p 3000:3000 --network minha-rede  --name alurabooks aluradocker/alura-books:1.0 -> executa na mesma rede 
+
+http://localhost:3000 -> tem uma aplicacao
+http://localhost:3000/seed -> popula o banco
+
+
+
+baixei essas duas imagens
