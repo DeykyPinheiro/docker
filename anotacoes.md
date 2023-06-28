@@ -153,3 +153,29 @@ http://localhost:3000/seed -> popula o banco
 
 
 baixei essas duas imagens
+
+==============================================
+CONHECENDO DOCKER COMPOSE, basicamente, pega todos os comando e coloca em um scrip, ainda NÃO é um orquestrador
+
+criei um arquivo chamado docker-compsoe.yaml
+
+version: "3.9" //versao do yaml
+services: // servicos que vamos usar, basicamente cada container que vamos subir
+  mongodb: // nome do servico, pode ser qualquer um
+    image: mongo:4.4.6 // carregando essa imagem
+    container_name: meu-mongo // nome do container
+    networks: // redes
+      - compose-bridge // rede que vai ta conectado
+
+  alurabooks:
+    image: aluradocker/alura-books:1.0
+    container_name: alurabooks
+    networks:
+      - compose-bridge
+    ports: // mapeamento de porta
+      - 3000:3000 // 8080 local  e 3000 do container
+
+networks: // criando rede
+  compose-bridge: // nome da rede criada
+    driver: bridge // qual drive vai usar
+
